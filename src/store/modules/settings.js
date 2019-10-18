@@ -1,20 +1,20 @@
 import cards from 'api/cards'
-import referenceStories from 'api/referenceStories'
+import checkItems from 'api/check-items'
 import teams from 'api/teams'
-import {GET_TEAMS, GET_CARDS_SETTINGS, GET_REFERENCE_STORIES} from 'store/mutation-types'
+import {GET_TEAMS, GET_CARDS_SETTINGS, GET_CHECK_ITEMS} from 'store/mutation-types'
 
 // initial state
 const state = {
   teams: [],
   cards: [],
-  referenceStories: []
+  checkItems: []
 }
 
 // getters
 const getters = {
   teams: state => state.teams,
   cards: state => state.cards,
-  referenceStories: state => state.referenceStories
+  checkItems: state => state.checkItems
 }
 
 // actions
@@ -29,10 +29,10 @@ const actions = {
       commit(GET_TEAMS, {teams: data.data})
     })
   },
-  getReferenceStories ({commit}, team) {
+  getCheckItems ({commit}, team) {
     if (team) {
-      referenceStories.getReferenceStories(team).then(({data}) => {
-        commit(GET_REFERENCE_STORIES, {stories: data.data})
+      checkItems.getCheckItems(team).then(({data}) => {
+        commit(GET_CHECK_ITEMS, {checkItems: data.data})
       })
     }
   }
@@ -43,8 +43,8 @@ const mutations = {
   [GET_CARDS_SETTINGS] (state, {cards}) {
     state.cards = cards
   },
-  [GET_REFERENCE_STORIES] (state, {stories}) {
-    state.referenceStories = stories
+  [GET_CHECK_ITEMS] (state, {checkItems}) {
+    state.checkItems = checkItems
   },
   [GET_TEAMS] (state, {teams}) {
     state.teams = teams

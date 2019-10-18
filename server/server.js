@@ -19,8 +19,8 @@ app.get('/cards', function (req, res) {
   res.send(require("./data/cards.json"))
 })
 
-app.get('/stories/:id', function (req, res) {
-  res.send(require( `./data/${req.params.id}-stories.json`))
+app.get('/checks/:id', function (req, res) {
+  res.send(require( `./data/${req.params.id}-checks.json`))
 })
 
 app.get('/teams', function (req, res) {

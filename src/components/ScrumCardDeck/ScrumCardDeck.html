@@ -17,22 +17,14 @@
             </card>
         </transition>
         <transition name="fade">
-            <div class="ReferenceStories" v-if="preselected">
-                <md-toolbar>
-                    <h2 class="md-title" style="flex: 1">
-                        Reference Stories
-                    </h2>
-                    <md-button class="md-icon-button" id="profile" @click="preselected = null">
-                        <md-icon>clear</md-icon>
-                    </md-button>
-                </md-toolbar>
-                <div class="Stories">
-                    <ul>
-                        <li v-for="referenceStory in referenceStoriesForPreselected"
-                           class="ReferenceStory">
-                            {{referenceStory}}
-                        </li>
-                    </ul>
+            <div class="CheckItem" v-if="currentCheckItem">
+                <div class="">
+                  Check Point Being Discussed:
+                </div>
+                <div class="">
+                  <pre>
+                    {{currentCheckItem}}
+                  </pre>
                 </div>
             </div>
         </transition>

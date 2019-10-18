@@ -5,7 +5,7 @@ let url = process.env.NODE_ENV === 'production' ? config.build.env.API_HOST : co
 let port = process.env.NODE_ENV === 'production' ? config.build.env.API_PORT : config.dev.env.API_PORT
 
 export default {
-  getReferenceStories (team) {
-    return axios.get(`http://${url}:${port}/stories/${team}`)
+  getCheckItems (team) {
+    return axios.get(`http://${url}:${port}/checks/${team}`)
   }
 }

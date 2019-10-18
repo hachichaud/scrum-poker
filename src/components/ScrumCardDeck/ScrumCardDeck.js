@@ -33,20 +33,13 @@ export default {
    * Computed properties
    */
   computed: {
-    referenceStoriesForPreselected () {
-      let stories = []
-
-      if (this.preselected != null && this.preselected.value != null) {
-        return this.referenceStories.filter((referenceStory) => {
-          return this.preselected.value == referenceStory.value
-        })[0].stories
-
-      }
-      return stories
+    currentCheckItem() {
+      if (this.checkItems == null) {return;}
+      return this.checkItems[0];
     },
     ...mapGetters({
       me: 'me',
-      referenceStories: 'referenceStories',
+      checkItems: 'checkItems',
       needsProfile: 'needsProfile',
     })
   },
@@ -56,7 +49,7 @@ export default {
    */
   mounted (){
     this.$store.dispatch('getCards')
-    this.$store.dispatch('getReferenceStories', this.me.team)
+    this.$store.dispatch('getCheckItems', this.me.team)
 
     if (!this.needsProfile) {
       this.$socket.emit('presence:user', this.me)
@@ -83,7 +76,7 @@ export default {
     {
       if (val === false) {
         this.$socket.emit('presence:user', this.me)
-        this.$store.dispatch('getReferenceStories', this.me.team)
+        this.$store.dispatch('getCheckItems', this.me.team)
       }
     }
   },

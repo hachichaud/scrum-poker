@@ -78,7 +78,7 @@ export default {
       {
         this.error = null
         this.storeProfile(this.profileForm)
-        this.getReferenceStories(this.profileForm.team)
+        this.getCheckItems(this.profileForm.team)
 
         setTimeout(() => {
           this.closeDialog('Profile')
@@ -100,7 +100,7 @@ export default {
     },
     ...mapActions([
       'storeProfile',
-      'getReferenceStories'
+      'getCheckItems'
     ])
 
   },

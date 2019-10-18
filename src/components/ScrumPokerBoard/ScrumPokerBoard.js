@@ -74,7 +74,7 @@ export default {
       me: 'me',
       needsProfile: 'needsProfile',
       cards: 'cards',
-      referenceStories: 'referenceStories'
+      checkItems: 'checkItems'
     }),
   },
 
